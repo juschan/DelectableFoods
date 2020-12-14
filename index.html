@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delectable Foods - Menu and Food Ordering System</title>
+<!-- If IE use the latest rendering engine -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+<!-- Set the page to the width of the device and set the zoon level -->
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+
+<!-- Get Boostrap 3.3.7 css-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+.jumbotron{
+    background-color:#8C489F;
+    color:white;
+}
+/* Adds borders for tabs */
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.navbar-custom{
+    background-color: #8C489F;
+    color: white !important;
+}
+
+.navbar-nav>li>a {
+    color: white !important;
+}
+
+.navbar-default .navbar-brand {
+    background-color: #8C489F;
+    color: white !important;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: #8C489F;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 50px auto;
+  padding: 20px;
+  width: 70%;
+  min-width: 300px;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+</style>
+
+</head>
+<body ng-app="MenuApp">
+
+<div class="container">
+
+<nav class="navbar navbar-default navbar-custom">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Delectable Foods - Menu and Food Ordering System</a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="well well-sm">
+    <h4>Welcome to Delectable Foods!</h4>
+
+    <br />
+
+    <p>Branch: Bedok Mall</p>
+    <p>Table: 6</p>
+
+</div>
+<br />
+
+<h3>Set Menu</h3>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">Set Menu A - Rojak, Laksa, Ice Jelly </div>
+            <div class="col-xs-6 col-md-4">$12.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">Set Menu B - Vegetarian Spring Rolls, Vegetarian Bee Hoon, Ice Jelly</div>
+            <div class="col-xs-6 col-md-4">$11.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>  
+    </div>
+  </div>
+
+<h3>Starters</h3>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">A1 - Vegetarian Spring Rolls</div>
+            <div class="col-xs-6 col-md-4">$3.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">A2 - Chicken Wings</div>
+            <div class="col-xs-6 col-md-4">$5.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">A3 - Rojak</div>
+            <div class="col-xs-6 col-md-4">$4.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>  
+    </div>
+  </div>
+
+<h3>Mains</h3>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">B1 - Nasi Lemak</div>
+            <div class="col-xs-6 col-md-4">$8.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">B2 - Laksa</div>
+            <div class="col-xs-6 col-md-4">$7.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">B3 - Hokkien Noodles</div>
+            <div class="col-xs-6 col-md-4">$7.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">B4 - Vegetarian Bee Hoon</div>
+            <div class="col-xs-6 col-md-4">$7.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+    </div>
+  </div>
+
+
+<h3>Dessert</h3>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">C1 - Ice Kachang</div>
+            <div class="col-xs-6 col-md-4">$3.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">C2 - Chendol</div>
+            <div class="col-xs-6 col-md-4">$3.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">C3 - Ice Jelly</div>
+            <div class="col-xs-6 col-md-4">$3.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+    </div>
+  </div>
+
+  <h3>Beverage</h3>
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">D1 - Kopi</div>
+            <div class="col-xs-6 col-md-4">$2.50</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D2 - Teh</div>
+            <div class="col-xs-6 col-md-4">$2.50</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D3 - Kopi-O</div>
+            <div class="col-xs-6 col-md-4">$2.30</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D4 - Teh-O</div>
+            <div class="col-xs-6 col-md-4">$2.30</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D5 - Tiger Beer (330ml)</div>
+            <div class="col-xs-6 col-md-4">$6.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D6 - Coke(330ml)</div>
+            <div class="col-xs-6 col-md-4">$4.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D7 - Fresh Lime Juice</div>
+            <div class="col-xs-6 col-md-4">$4.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-4">D8 - Fresh Orange Juice</div>
+            <div class="col-xs-6 col-md-4">$4.00</div>
+            <div class="col-xs-6 col-md-4"><input type="number" class="form-control" id="qty" placeholder="0" min="0"></div>
+          </div>
+      </div>
+    </div>
+  
+    <form>
+      <button type="submit" class="btn btn-default">Submit Order</button>
+    </form>
+    <br />
+    <br />
+</div> <!-- closes well -->
+</div> <!-- closes container -->
+
+
+<!-- Get jQuery 3.1.0-->
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+
+<!--Angular 1 code goes here-->
+<script>
+
+    $( function() {
+      $( "[title]" ).tooltip({ position: "top right", opacity: 0.7});
+    } );
+
+    var app = angular.module('MenuApp',[]);
+
+</script> 
+
+</body>
+</html>
